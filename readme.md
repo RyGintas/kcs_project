@@ -1,3 +1,17 @@
+Main purpose of this project is to build up a small basic website, where user would be able to upload a .pdf file with some kind of table in it and download that table in Excel file.
+-------------------------------------------------------
+This project consists o severals parts:
+- creating a server with flask
+- creating a small basic website, where user will be able to browse and attach .pdf file from his computer
+- browser will send that .pdf file to server
+- flask will call a labrary tabula (or similar one) and will extract the table
+- table data will be sent back using json
+- user will download Excel file from wthat website with table extracted from pdf
+
+--------------------------------------------------------
+A detailed recquirements for extracted table:
+
+
 Aprašymas:
 Yra dviejų tipų .pdf užsakymo failai: angliška versija ir lietuviška versija. Pavyzdžiai prikabinti.
 Užsakymo .pdf failas turi būti nuskaitytas, konvertuotas į .xlsx, tuomet apdorotas pagal šiuos kriterijus:
