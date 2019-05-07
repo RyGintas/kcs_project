@@ -4,7 +4,7 @@ This project consists o severals parts:
 - creating a server with flask
 - creating a small basic website, where user will be able to browse and attach .pdf file from his computer
 - browser will send that .pdf file to server
-- flask will call a labrary tabula (or similar one) and will extract the table
+- flask will call a labrary xxx (still in search wich one is the best) and will extract the table
 - table data will be sent back using json
 - user will download Excel file from wthat website with table extracted from pdf
 
