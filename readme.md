@@ -1,44 +1,32 @@
-Main purpose of this project is to build up a small basic website, where user would be able to upload a .pdf file with some kind of table in it and download that table in Excel file.
+###My first python pject "PDF2X"
+Main purpose of this project is to build up a small basic website, where user would be able to upload a specific .pdf file (sample attached Goods_Order_EN.pdf) and receive it back in .xlsx format with a table extracted and modified by specific needs.
+
+>Note: this is a specific project, it is only suitable for limed group of users, that works with such orders.
+
+>Another note: if there are two tables in .pdf file, only first one is extracted
+
 -------------------------------------------------------
-This project consists o severals parts:
+
+#This project consists of severals parts:
 - creating a server with flask
-- creating a small basic website, where user will be able to browse and attach .pdf file from his computer
+- creating a small basic HTML website, where user will be able to browse and attach .pdf file from his computer
 - browser will send that .pdf file to server
-- flask will call a labrary xxx (still in search wich one is the best) and will extract the table
+- server will call a library "Camelot" for extracting a table
+- server will call a library "pandas" for modifying a table
 - table data will be sent back using json
-- user will download Excel file from wthat website with table extracted from pdf
+- user will download Excel.xlsx file from that website with table extracted from pdf
 
 --------------------------------------------------------
+
 A detailed recquirements for extracted table:
 
-
-Aprašymas:
-Yra dviejų tipų .pdf užsakymo failai: angliška versija ir lietuviška versija. Pavyzdžiai prikabinti.
-Užsakymo .pdf failas turi būti nuskaitytas, konvertuotas į .xlsx, tuomet apdorotas pagal šiuos kriterijus:
-LT atvejis
-•	Pirma excel eilutė turi būti visuomet vienoda. Stulpelių antraštės (reikšmės):
+•	First line in table stays always the same with such headers:
 1.	Warehouse
-2.	Item
-3.	Product name
-4.	Purchase Qty
-•	Stulpeliai turi būti užpildyti pagal šias reikšmes iš .pdf failo:
-1.	Warehouse stulpelio užpildymo reikšmės imamos pagal nurodytą reikšmę šalia „Perkelti į sandėlį:“ (pavyzdžio atveju V0198);
-2.	Item stulpelio reikšmės imamos iš lentelės pirmo stulpelio „kodas“
-3.	Product name stulpelio reikšmės imamos iš stulpelio „Pavadinimas“
-4.	Purchase Qty stuklpleio reikšmės imamos iš stulpelio „Kiekis“
-*Pastaba
-Jei užsakymo faile yra antra lentelė užsakyti aksesuarus, ji ignoruojama ir į .xlsx failą neįkeliama 
-LV atvejis
-•	Pirma excel eilutė turi būti visuomet vienoda. Stulpelių antraštės (reikšmės):
-1.	Warehouse
-2.	Item
-3.	Product name
-4.	Purchase Qty
-•	Stulpeliai turi būti užpildyti pagal šias reikšmes iš .pdf failo:
-1.	Warehouse stulpelio užpildymo reikšmės imamos pagal nurodytą reikšmę šalia „Move to warehouse:“ (pavyzdžio atveju V0020LV);
-2.	Item stulpelio reikšmės imamos iš lentelės pirmo stulpelio „kodas“
-3.	Product name stulpelio reikšmės imamos iš stulpelio „Pavadinimas“
-4.	Purchase Qty stuklpleio reikšmės imamos iš stulpelio „Kiekis“
-*Pastaba
-Jei užsakymo faile yra antra lentelė užsakyti aksesuarus, ji ignoruojama ir į .xlsx failą neįkeliama 
+2.	Code
+3.	Name
+4.	Quantity
 
+•	First column is filled with same value - "V0020LV"
+•   Excel file format .xlsx
+
+**Please do not use without my permission!**
