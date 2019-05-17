@@ -1,3 +1,8 @@
+<p align="center">
+   <img src="https://github.com/RyGintas/kcs_project/blob/master/img/logo.jpg" width="200">
+</p>
+
+
 ## My first python pject "PDF2X"
 
 Main purpose of this project is to build up a small basic website, where user would be able to upload a specific .pdf file (sample attached Goods_Order_EN.pdf) and receive it back in .xlsx format with a table extracted and modified by specific needs.
