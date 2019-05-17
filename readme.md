@@ -3,7 +3,7 @@
 </p>
 
 
-## My first python pject "PDF2X"
+# My first python pject "PDF2X"
 
 Main purpose of this project is to build up a small basic website, where user would be able to upload a specific .pdf file (sample attached Goods_Order_EN.pdf) and receive it back in .xlsx format with a table extracted and modified by specific needs.
 
@@ -13,7 +13,7 @@ Main purpose of this project is to build up a small basic website, where user wo
 
 -------------------------------------------------------
 
-# This project consists of severals parts:
+## This project consists of severals parts:
 
 - creating a server with flask
 - creating a small basic HTML website, where user will be able to browse and attach .pdf file from his computer
