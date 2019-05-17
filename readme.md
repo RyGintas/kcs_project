@@ -41,5 +41,4 @@ LV atvejis
 4.	Purchase Qty stuklpleio reikšmės imamos iš stulpelio „Kiekis“
 *Pastaba
 Jei užsakymo faile yra antra lentelė užsakyti aksesuarus, ji ignoruojama ir į .xlsx failą neįkeliama 
-*** 
 

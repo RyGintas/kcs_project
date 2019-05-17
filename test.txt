@@ -1,6 +1,0 @@
-//comments
-test
-
-for i in eilutes
-    if i > 29
-        print("all")
