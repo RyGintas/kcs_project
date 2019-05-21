@@ -5,6 +5,8 @@
 
 # My first python pject "PDF2X"
 
+pakeiciau eilute
+
 Main purpose of this project is to build up a small basic website, where user would be able to upload a specific .pdf file (sample attached Goods_Order_EN.pdf) and receive it back in .xlsx format with a table extracted and modified by specific needs.
 
 > *Note: this is a specific project, it is only suitable for limed group of users, that works with such orders.*
