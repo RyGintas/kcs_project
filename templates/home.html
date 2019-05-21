@@ -11,30 +11,12 @@
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
-
-        <div class="container">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                </div>
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="inputGroupFile01"
-                        aria-describedby="inputGroupFileAddon01">
-                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                </div>
-            </div>
-
-
-
             <img style="display: inline;" src="/logo.jpg" alt="logo" />
             <h1 style="display: inline;">File upload</h1>
-            <from methond="POST" enctype="multipart/from-data">
-                <div class="form-group">
-                    <label for="inputFile">Filne input</label>
-                    <input type="file" name="inputFile">
-                </div>
-                <button type="submit" class="btn bnt-default">Submit</button>
-            </from>
+            <form method=post enctype=multipart/form-data>
+                <input type=file name=file>
+                <input type=submit value=Upload>
+            </form>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

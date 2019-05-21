@@ -12,7 +12,7 @@ Main purpose of this project is to build up a small basic website, where user wo
 > *Note: this is a specific project, it is only suitable for limed group of users, that works with such orders.*
 
 > *Another note: if there are two tables in .pdf file, only first one is extracted*
-TEST
+
 -------------------------------------------------------
 
 ## This project consists of severals parts:
@@ -38,5 +38,11 @@ A detailed recquirements for extracted table:
 -	First column is filled with same value - "V0020LV"
 
 -   Excel file format .xlsx
+
+## Instalation:
+
+'pip install -r requirements.txt'
+
+
 
 **Please do not use without my permission!**

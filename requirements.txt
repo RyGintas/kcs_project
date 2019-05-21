@@ -1,0 +1,4 @@
+camelot
+flask
+pandas
+werkzeug.utils
