@@ -11,7 +11,7 @@ ALLOWED_EXTENSIONS = set(['pdf'])
 app = Flask(__name__, static_url_path='/static')
 DIR_PATH = os.path.dirname(os.path.realpath(__file__))
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['DOWNLOAD_FOLDER'] = DOWNLOAD_FOLDER
+#app.config['DOWNLOAD_FOLDER'] = DOWNLOAD_FOLDER
 # limit upload size upto 8mb
 app.config['MAX_CONTENT_LENGTH'] = 8 * 1024 * 1024
 
@@ -42,15 +42,14 @@ def prepear_file(path):
     t1= t1.T.set_index(0).T
     t1.drop(['Comments', 'Ordered by' ], axis=1, inplace=True)
     t1.insert(0, "Warehouse", "V0020LV")
-    t1.to_excel('Exported_file.xlsx')
-    
+    t1.to_excel(os.path.join(app.config['UPLOAD_FOLDER'], 'Exported_file.xlsx'))
 
+ 
 def return_file(path):
     file_name = 'Exported_file.xlsx'
     wb = load_workbook('Exported_file.xlsx')
-    wb.save(file_name, as_template=True)
+    wb.save(file_name)
     from flask import send_from_directory
-    return send_from_directory(file_name, as_attachment=True)
-
+    return send_from_directory(app.config['UPLOAD_FOLDER'], file_name, as_attachment=True)
 
 app.run(debug=True)
