@@ -31,22 +31,21 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            process_file(os.path.join(app.config['UPLOAD_FOLDER'], filename), filename)
-            return redirect(url_for('uploaded_file', filename=filename))
+            html = prepear_file(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return html
     return render_template('home.html')
 
-def process_file(path, filename):
-    prepear_file(path, filename)
-
-def prepear_file(path, filename):
-    tables = camelot.read_pdf('/uploads/<filename>')
-    tables[0].to_csv('/uploads/<filename>')
-    input_file = pd.read_csv('/uploads/<filename>')
-    input_file.drop(['Comments', 'Ordered by'], axis=1, inplace=True)
-    input_file.insert(0, "Warehouse", "V0020LV")
-    writer = ExcelWriter['DOWNLOAD_FOLDER' + filename ]
-    input_file.to_excel(writer,'Sheet1', index=False)
-    writer.save()
+def prepear_file(path):
+    tables = camelot.read_pdf(path)
+    t1 = tables[0].df
+    t1= t1.T.set_index(0).T
+    t1.drop(['Comments', 'Ordered by' ], axis=1, inplace=True)
+    t1.insert(0, "Warehouse", "V0020LV")
+    return t1.to_html()
+    #from pandas import ExcelWriter
+    #writer = ExcelWriter('PythonExport.xlsx')
+    #t1.to_excel(writer,'Sheet1', index=False)
+    #writer.save()
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
