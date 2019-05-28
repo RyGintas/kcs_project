@@ -1,6 +1,6 @@
 import os
 import camelot
-from flask import Flask, flash, request, redirect, render_template, url_for
+from flask import Flask, request, redirect, url_for, render_template, send_from_directory
 from werkzeug.utils import secure_filename
 
 UPLOAD_FOLDER = os.path.dirname(os.path.abspath(__file__)) + '/uploads/'
@@ -11,6 +11,7 @@ app = Flask(__name__, static_url_path='/static')
 DIR_PATH = os.path.dirname(os.path.realpath(__file__))
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['DOWNLOAD_FOLDER'] = DOWNLOAD_FOLDER
+# limit upload size upto 8mb
 app.config['MAX_CONTENT_LENGTH'] = 8 * 1024 * 1024
 
 def allowed_file(filename):
@@ -31,11 +32,11 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             process_file(os.path.join(app.config['UPLOAD_FOLDER'], filename), filename)
-            return redirect(url_for('upload_file', filename=filename))
+            return redirect(url_for('uploaded_file', filename=filename))
     return render_template('home.html')
 
 def process_file(path, filename):
-        prepear_file(path, filename)
+    prepear_file(path, filename)
 
 def prepear_file(path, filename):
     tables = camelot.read_pdf('/uploads/<filename>')
