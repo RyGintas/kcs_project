@@ -1,5 +1,6 @@
 import os
 import camelot
+from openpyxl import load_workbook
 from flask import Flask, request, redirect, url_for, render_template, send_from_directory
 from werkzeug.utils import secure_filename
 
@@ -31,8 +32,8 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            html = prepear_file(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return html
+            prepear_file(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return return_file(os.path.join(app.config['UPLOAD_FOLDER'], filename))
     return render_template('home.html')
 
 def prepear_file(path):
@@ -41,15 +42,15 @@ def prepear_file(path):
     t1= t1.T.set_index(0).T
     t1.drop(['Comments', 'Ordered by' ], axis=1, inplace=True)
     t1.insert(0, "Warehouse", "V0020LV")
-    return t1.to_html()
-    #from pandas import ExcelWriter
-    #writer = ExcelWriter('PythonExport.xlsx')
-    #t1.to_excel(writer,'Sheet1', index=False)
-    #writer.save()
+    t1.to_excel('Exported_file.xlsx')
+    
 
-@app.route('/uploads/<filename>')
-def uploaded_file(filename):
-    return send_from_directory(app.config['DOWNLOAD_FOLDER'], filename, as_attachment=True)
+def return_file(path):
+    file_name = 'Exported_file.xlsx'
+    wb = load_workbook('Exported_file.xlsx')
+    wb.save(file_name, as_template=True)
+    from flask import send_from_directory
+    return send_from_directory(file_name, as_attachment=True)
 
 
 app.run(debug=True)

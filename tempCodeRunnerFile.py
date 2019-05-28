@@ -1,6 +1,1 @@
-    lentele = pd.read_csv('/uploads/<filename>')
-    lentele.drop(['Comments', 'Ordered by'], axis=1, inplace=True)
-    lentele.insert(0, "Warehouse", "V0020LV")
-    writer = ExcelWriter('/uploads/<filename>')
-    lentele.to_excel(writer,'Sheet1', index=False)
-    writer.save()
+send_from_directory
