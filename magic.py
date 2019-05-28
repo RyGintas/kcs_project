@@ -1,15 +1,8 @@
-##temporary failiukas kodu .pdf failo apdorojimui
-## NEORITAIKYTAS DARBUI SERVERYJE SO FAR
-
-## Aidi, klausimas tau. Ar gera ideja yra ta kad as exportinu lentele i failiuka, o tada ta failiuka nuskaitau su pandas ? 
-## problema yra ta kad poto kai  camelot biblioteka nuskaito mano lentele, pandas jos nesupranta ir neapdoroja (neistrina stulpeliu ir tt), 
-## o kai padarau nuskaityma is .csv - viskas eina puikiai.
-
-
 import camelot
 import pandas as pd
 from pandas import ExcelWriter
 
+def prepear_file(path, filename):
 tables = camelot.read_pdf('Goods_Order_en.pdf')
 tables[0].to_csv('failiukas.csv')
 lentele = pd.read_csv('failiukas.csv')
