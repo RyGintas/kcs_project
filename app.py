@@ -54,28 +54,35 @@ def upload_file():
             file.save(file_path_pdf)
 
             tables = camelot.read_pdf(file_path_pdf)
-            logging.info("Rading a table from uploaded pdf")
+            logger.info("Rading a table from uploaded pdf")
             table = tables[0].df
+            logger.info("Table was found!")
             table = table.T.set_index(0).T
+            logger.info("Modifying table")
             table.drop(["Comments", "Ordered by"], axis=1, inplace=True)
             table.insert(0, "Warehouse", "V0020LV")
 
             table.to_excel(file_path_xlsx, index=False)
+            logger.info("Writing table to Excel file")
 
             return send_from_directory(
                 app.config["UPLOAD_FOLDER"], file_name_xlsx, as_attachment=True
             )
+
     return render_template("home.html")
 
 def create_logger():
     """logging function"""
-    logging.basicConfig(level = logging.INFO, filename='logging', filemode='w')
+    logging.basicConfig(level = logging.INFO, filename='logging.txt', filemode='w')
     logger = logging.getLogger(" ")
-    admin_handler = logging.FileHandler('logging')
+    admin_handler = logging.FileHandler('logging.txt')
     admin_handler.setLevel(logging.INFO)
     logger.addHandler(admin_handler)
     logger.warning(f'{admin_handler} created a new logger')
     return logger
 
+logger = create_logger()
+logger.info("Logging has begun")
 
-app.run(debug=True)
+
+app.run()
