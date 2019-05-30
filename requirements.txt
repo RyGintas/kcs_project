@@ -2,3 +2,5 @@ camelot
 flask
 pandas
 werkzeug.utils
+openpyxl
+os

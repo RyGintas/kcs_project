@@ -10,7 +10,6 @@ from flask import (
     send_from_directory,
 )
 from werkzeug.utils import secure_filename
-from flask import send_from_directory
 
 UPLOAD_FOLDER = os.path.dirname(os.path.abspath(__file__)) + "/uploads/"
 DOWNLOAD_FOLDER = os.path.dirname(os.path.abspath(__file__)) + "/downloads/"
@@ -55,7 +54,7 @@ def upload_file():
             table.drop(["Comments", "Ordered by"], axis=1, inplace=True)
             table.insert(0, "Warehouse", "V0020LV")
 
-            table.to_excel(file_path_xlsx)
+            table.to_excel(file_path_xlsx, index=False)
 
             return send_from_directory(
                 app.config["UPLOAD_FOLDER"], file_name_xlsx, as_attachment=True
