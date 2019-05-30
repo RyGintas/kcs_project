@@ -41,7 +41,7 @@ A detailed recquirements for extracted table:
 ## How to run:
 first install necessary libraries:
 ```shell
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 then just run app.py
 
