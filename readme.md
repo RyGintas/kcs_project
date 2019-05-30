@@ -1,5 +1,5 @@
 <p align="center">
-   <img src="https://github.com/RyGintas/kcs_project/blob/master/img/logo.jpg" width="200">
+   <img src="https://github.com/RyGintas/kcs_project/blob/master/static/images/logo.jpg" width="200">
 </p>
 
 
