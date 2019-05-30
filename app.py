@@ -1,5 +1,7 @@
 import os
 import camelot
+import logging
+from logging.handlers import RotatingFileHandler
 from openpyxl import load_workbook
 from flask import (
     Flask,
@@ -60,5 +62,16 @@ def upload_file():
                 app.config["UPLOAD_FOLDER"], file_name_xlsx, as_attachment=True
             )
     return render_template("home.html")
+
+def log():
+    app.logger.warning('A warning occurred (%d apples)', 42)
+    app.logger.error('An error occurred')
+    app.logger.info('Info')
+    return "log"
+
+if __name__ == '__main__':
+    handler = RotatingFileHandler('log.log', maxBytes=10000, backupCount=1)
+    handler.setLevel(logging.INFO)
+    app.logger.addHandler(handler)
 
 app.run(debug=True)

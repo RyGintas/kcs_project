@@ -4,3 +4,5 @@ pandas
 werkzeug.utils
 openpyxl
 os
+logging
+logging.handlers
