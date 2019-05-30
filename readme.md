@@ -7,6 +7,7 @@
 
 Main purpose of this project is to build up a small basic website, where user would be able to upload a specific .pdf file (sample attached Goods_Order_EN.pdf) and receive it back in .xlsx format with a table extracted and modified by specific needs.
 
+
 > *Note: this is a specific project, it is only suitable for limed group of users, that works with such orders.*
 
 > *Another note: if there are two tables in .pdf file, only first one is extracted*
@@ -19,9 +20,9 @@ Main purpose of this project is to build up a small basic website, where user wo
 - creating a small basic HTML website, where user will be able to browse and attach .pdf file from his computer
 - browser will send that .pdf file to server
 - server will call a library "Camelot" for extracting a table
-- server will call a library "pandas" for modifying a table
-- table data will be sent back using json
-- user will download Excel.xlsx file from that website with table extracted from pdf
+- server will call a library "pandas" for modifying a table and writng data to Excel file
+- Exported_file.xlsx file with extracted table from pdf will download automatically
+- whole process will be logged with logging library
 
 --------------------------------------------------------
 
@@ -38,9 +39,10 @@ A detailed recquirements for extracted table:
 -   Excel file format .xlsx
 
 ## How to run:
+first insstall necessary libraries:
 ```shell
-pip install -r requirements.txt
+pip install requirements.txt
 ```
+run app.py
 
-
-**Please do not use without my permission!**
+**Please do not spread this app without my permission!**
