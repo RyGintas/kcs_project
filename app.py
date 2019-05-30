@@ -1,7 +1,7 @@
 import os
 import camelot
 import logging
-from logging.handlers import RotatingFileHandler
+import logging.config
 from openpyxl import load_workbook
 from flask import (
     Flask,
@@ -32,6 +32,9 @@ def allowed_file(filename):
 
 @app.route("/", methods=["GET", "POST"])
 def upload_file():
+    """Function for uploading a .pdf file.
+    Reading it, extracting a table
+    and sending back that table in .xlsx file"""
     if request.method == "POST":
         if "file" not in request.files:
             flash("No file part")
@@ -51,6 +54,7 @@ def upload_file():
             file.save(file_path_pdf)
 
             tables = camelot.read_pdf(file_path_pdf)
+            logging.info("Rading a table from uploaded pdf")
             table = tables[0].df
             table = table.T.set_index(0).T
             table.drop(["Comments", "Ordered by"], axis=1, inplace=True)
@@ -63,15 +67,15 @@ def upload_file():
             )
     return render_template("home.html")
 
-def log():
-    app.logger.warning('A warning occurred (%d apples)', 42)
-    app.logger.error('An error occurred')
-    app.logger.info('Info')
-    return "log"
+def create_logger():
+    """logging function"""
+    logging.basicConfig(level = logging.INFO, filename='logging', filemode='w')
+    logger = logging.getLogger(" ")
+    admin_handler = logging.FileHandler('logging')
+    admin_handler.setLevel(logging.INFO)
+    logger.addHandler(admin_handler)
+    logger.warning(f'{admin_handler} created a new logger')
+    return logger
 
-if __name__ == '__main__':
-    handler = RotatingFileHandler('log.log', maxBytes=10000, backupCount=1)
-    handler.setLevel(logging.INFO)
-    app.logger.addHandler(handler)
 
 app.run(debug=True)

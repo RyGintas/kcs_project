@@ -5,4 +5,4 @@ werkzeug.utils
 openpyxl
 os
 logging
-logging.handlers
+logging.config
