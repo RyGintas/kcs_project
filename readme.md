@@ -39,10 +39,10 @@ A detailed recquirements for extracted table:
 -   Excel file format .xlsx
 
 ## How to run:
-first insstall necessary libraries:
+first install necessary libraries:
 ```shell
 pip install requirements.txt
 ```
-run app.py
+then just run app.py
 
 **Please do not spread this app without my permission!**
