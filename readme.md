@@ -38,9 +38,9 @@ A detailed recquirements for extracted table:
 -   Excel file format .xlsx
 
 ## How to run:
-'''
+```shell
 pip install -r requirements.txt
-'''
+```
 
 
 **Please do not use without my permission!**
