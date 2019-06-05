@@ -31,10 +31,8 @@ Main purpose of this project is to build up a small basic website, where user wo
 It reads a PDF file and makes an XLSX file with such formatting:
 
 -	First line in table stays always the same with such headers:
-1.	Warehouse
-2.	Code
-3.	Name
-4.	Quantity
+
+Warehouse   | Code  | Name  | Quantity
 
 -	Column A is filled with same value - "V0020LV"
 -   Column B is filled with item codes
