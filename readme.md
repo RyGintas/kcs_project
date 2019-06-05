@@ -26,7 +26,9 @@ Main purpose of this project is to build up a small basic website, where user wo
 
 --------------------------------------------------------
 
-A detailed recquirements for extracted table:
+## What this converter basically does:
+
+It reads a PDF file and makes an XLSX file with such formatting:
 
 -	First line in table stays always the same with such headers:
 1.	Warehouse
@@ -34,11 +36,14 @@ A detailed recquirements for extracted table:
 3.	Name
 4.	Quantity
 
--	First column is filled with same value - "V0020LV"
-
--   Excel file format .xlsx
+-	Column A is filled with same value - "V0020LV"
+-   Column B is filled with item codes
+-   Column C is filled with item names
+-   Column D is filled with ordered quantity
+-   Exporterl file format .xlsx
 
 ## How to run:
+
 first install necessary libraries:
 ```shell
 pip install -r requirements.txt
